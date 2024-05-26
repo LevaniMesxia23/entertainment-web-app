@@ -4,6 +4,27 @@ import { Mycontext } from "../App"
 
 function SignUpFormPage() {
   const context = useContext(Mycontext)
+  const {register, handleSubmit, formState: {errors}} = useForm<FormData>()
+
+  const onsubmit = async (data: {}) => {
+    console.log(data);
+  }
+
+  const emailValidation = {
+    required: "Can’t be empty",
+    minLength: {
+      value: 2,
+      message: "Can’t be empty",
+    },
+  }
+
+  const passwordValidation = {
+    required: "Can’t be empty",
+    minLength: {
+      value: 1,
+      message: "Can’t be empty",
+    },
+  }
 
   if(!context){
     throw new Error("FormPage must be used within a MycontextProvider");
@@ -32,3 +53,7 @@ function SignUpFormPage() {
 }
 
 export default SignUpFormPage
+
+function useForm<T>(): { register: any; handleSubmit: any; formState: { errors: any } } {
+  throw new Error("Function not implemented.")
+}
