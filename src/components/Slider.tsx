@@ -1,6 +1,7 @@
 import React from 'react';
 import data from "../../public/starter-code/data.json";
 import { ImageData } from "../types";
+import "../../public/starter-code/data.json"
 
 function Slider() {
   const trendingImages = (data as ImageData[]).filter(image => image.isTrending);
