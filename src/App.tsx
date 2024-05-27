@@ -1,37 +1,48 @@
-import React, { useState,createContext } from "react"
-import FormPage from "./components/LoginFormPage"
-import SignUpFormPage from "./components/SignUpFormPage"
-import "./index.css"
-
+import React, { useState, createContext } from "react";
+import { Navigate, Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import FormPage from "./components/LoginFormPage";
+import SignUpFormPage from "./components/Register";
+import HomePage from "./components/HomePage";
+import "./index.css";
 
 export interface FormData {
   email: string;
   password: string;
   repeatPassword: string;
 }
-interface MycontextType {
-  show:boolean;
-  setShow: React.Dispatch<React.SetStateAction<boolean>>;
 
+interface MyContextType {
+  showSignUpPage: boolean;
+  setShowSignUpPage: React.Dispatch<React.SetStateAction<boolean>>;
+  showHomePage: boolean;
+  setShowHomePage: React.Dispatch<React.SetStateAction<boolean>>;
 }
-export const Mycontext = React.createContext<MycontextType | null>(null)
+
+export const MyContext = createContext<MyContextType | null>(null);
 
 function App() {
- const [show, setShow] = useState<boolean>(true)
+  const [showSignUpPage, setShowSignUpPage] = useState<boolean>(true);
+  const [showHomePage, setShowHomePage] = useState<boolean>(false);
 
   return (
-    <>
-    <Mycontext.Provider 
-    value={{
-      show,
-      setShow,
-
-    }}>
-   {show ? <FormPage /> : <SignUpFormPage />}
-
-    </Mycontext.Provider>
-    </>
-  )
+    <MyContext.Provider 
+      value={{
+        showSignUpPage,
+        setShowSignUpPage,
+        showHomePage,
+        setShowHomePage
+      }}
+    >
+      <Router>
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/login" element={<FormPage />} />
+          <Route path="/register" element={<SignUpFormPage />} />
+          <Route path="/home" element={<HomePage />} />
+        </Routes>
+      </Router>
+    </MyContext.Provider>
+  );
 }
 
-export default App
+export default App;

@@ -1,21 +1,23 @@
 import React, { useContext } from 'react';
 import Movie from "../../public/starter-code/assets/Movie.svg"
-import { Mycontext } from '../App'
+import { MyContext } from '../App'
 import { useForm } from 'react-hook-form';
 import { FormData } from '../App';
+import HomePage from './HomePage';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function FormPage() {
-  const context = useContext(Mycontext)
+  const context = useContext(MyContext)
   const {register, handleSubmit, formState: {errors}} = useForm<FormData>()
-
+  const navigate = useNavigate()
   const onsubmit = async (data: FormData) => {
     console.log(data);
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       const user = JSON.parse(storedUser);
       if (data.email === user.email && data.password === user.password) {
-        alert("Login successful!");
+        navigate("/home")
       } else {
         alert("Invalid email or password");
       }
@@ -43,7 +45,6 @@ function FormPage() {
   if (!context) {
     throw new Error("FormPage must be used within a MycontextProvider");
   }
-  const { show, setShow} = context
   return (
     <div className='flex justify-center items-center flex-col px-[1.5rem]'>
       <img src={Movie} alt="" className=" mt-12 mb-14"/>
@@ -68,7 +69,9 @@ function FormPage() {
       
       <div className='flex justify-center gap-[0.56rem]'>
       <span className='text-white text-[0.9375rem]'>Don’t have an account?</span>
-      <span className='text-[#FC4747] text-[0.9375] cursor-pointer' onClick={() => setShow(!show)}>Sign Up</span>
+      <Link to={"/register"}>
+      <span className='text-[#FC4747] text-[0.9375] cursor-pointer'>Sign Up</span>
+      </Link>
       </div>
       </div>
     </div>

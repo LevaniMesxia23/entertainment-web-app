@@ -1,11 +1,12 @@
 import Movie from "../../public/starter-code/assets/Movie.svg"
 import React, { useContext } from "react"
-import { Mycontext } from "../App"
+import { MyContext } from "../App"
 import { useForm } from 'react-hook-form';
 import { FormData } from '../App';
+import { Link } from "react-router-dom";
 
 function SignUpFormPage() {
-  const context = useContext(Mycontext)
+  const context = useContext(MyContext)
   const {register, handleSubmit, formState: {errors}, watch} = useForm<FormData>()
 
   const onsubmit = async (data: {}) => {
@@ -37,7 +38,6 @@ function SignUpFormPage() {
   if(!context){
     throw new Error("FormPage must be used within a MycontextProvider");
   }
-  const { show, setShow} = context
   return (
     <div className='flex justify-center items-center flex-col px-[1.5rem]'>
       <img src={Movie} alt="" className=" mt-12 mb-14"/>
@@ -62,7 +62,9 @@ function SignUpFormPage() {
       
       <div className='flex justify-center gap-[0.56rem]'>
       <span className='text-white text-[0.9375rem]'>Already have an account?</span>
-      <span className='text-[#FC4747] text-[0.9375rem] cursor-pointer' onClick={() => setShow(!show)}>Login</span>
+      <Link to={"/login"}>
+      <span className='text-[#FC4747] text-[0.9375rem] cursor-pointer'>Login</span>
+      </Link>
       </div>
       </div>
     </div>
