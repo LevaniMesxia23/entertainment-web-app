@@ -2,25 +2,33 @@ import React, { useContext } from 'react';
 import Movie from "../../public/starter-code/assets/Movie.svg"
 import { Mycontext } from '../App'
 import { useForm } from 'react-hook-form';
+import { FormData } from '../App';
 
-interface FormData {
-  email: string;
-  password: string;
-}
 
 function FormPage() {
   const context = useContext(Mycontext)
   const {register, handleSubmit, formState: {errors}} = useForm<FormData>()
 
-  const onsubmit = async (data: {}) => {
+  const onsubmit = async (data: FormData) => {
     console.log(data);
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      if (data.email === user.email && data.password === user.password) {
+        alert("Login successful!");
+      } else {
+        alert("Invalid email or password");
+      }
+    } else {
+      alert("No registered user found");
+    }
   }
 
   const emailValidation = {
     required: "Can’t be empty",
-    minLength: {
-      value: 4,
-      message: "Must be email",
+    pattern: {
+      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      message: "Must be email address",
     },
   }
 
@@ -28,7 +36,7 @@ function FormPage() {
     required: "Can’t be empty",
     minLength: {
       value: 8,
-      message: "8 or more character",
+      message: "8 or more characters",
     },
   }
 

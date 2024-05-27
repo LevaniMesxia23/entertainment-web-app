@@ -3,6 +3,12 @@ import FormPage from "./components/LoginFormPage"
 import SignUpFormPage from "./components/SignUpFormPage"
 import "./index.css"
 
+
+export interface FormData {
+  email: string;
+  password: string;
+  repeatPassword: string;
+}
 interface MycontextType {
   show:boolean;
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
