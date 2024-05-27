@@ -3,6 +3,7 @@ import { Navigate, Route, Routes, BrowserRouter as Router } from "react-router-d
 import FormPage from "./components/LoginFormPage";
 import SignUpFormPage from "./components/Register";
 import HomePage from "./components/HomePage";
+import Slider from "./components/Slider"
 import "./index.css";
 
 export interface FormData {

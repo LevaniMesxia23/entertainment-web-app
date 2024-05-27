@@ -6,6 +6,8 @@ import TvSeriesImg from "../../public/starter-code/assets/icon-nav-tv-series.svg
 import BookmarkImg from "../../public/starter-code/assets/icon-nav-bookmark.svg"
 import AvatarImg from "../../public/starter-code/assets/image-avatar.png"
 import SearchIcon from "../../public/starter-code/assets/icon-search.svg"
+import Slider from "./Slider"
+import data from "../../public/starter-code/data.json"
 
 
 
@@ -25,12 +27,13 @@ function HomePage() {
       </div>
     </header>
     
-    <div className='p-6'>
+    <div className='p-4'>
       <div className='flex gap-4 mt-6'>
         <img src={SearchIcon} alt="" className='w-6 h-6'/>
         <input type="text" placeholder='Search for movies or TV series' className='outline-none bg-transparent text-white w-[80%]'/>
       </div>
     </div>
+    <Slider />
     </>
   )
 }
