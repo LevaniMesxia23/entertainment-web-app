@@ -8,6 +8,7 @@ import AvatarImg from "../../public/starter-code/assets/image-avatar.png"
 import SearchIcon from "../../public/starter-code/assets/icon-search.svg"
 import Slider from "./Slider"
 import Recomended from './Recomended'
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function HomePage() {
@@ -15,11 +16,20 @@ function HomePage() {
     <>
     <header>
       <div className=' h-14 bg-[#161D2F] flex justify-between items-center px-4'>
-        <img src={Movie} alt="" className='w-[1.5625rem]'/>
+       
+          <img src={Movie} alt="" className='w-[1.5625rem]'/>
+        
+        
         <div className='flex gap-6 h-4'>
+        <Link to={"/home"}>
         <img src={HomeImg} alt="" />
+        </Link>
+        <Link to={"/movies"}>
         <img src={MoviesImg} alt="" />
+        </Link>
+        <Link to={"/tv-series"}>
         <img src={TvSeriesImg} alt="" />
+        </Link>
         <img src={BookmarkImg} alt="" />
         </div>
         <img src={AvatarImg} alt="" className=' w-6 h-6 rounded-3xl'/>

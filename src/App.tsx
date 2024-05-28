@@ -3,6 +3,8 @@ import { Navigate, Route, Routes, BrowserRouter as Router } from "react-router-d
 import FormPage from "./components/LoginFormPage";
 import SignUpFormPage from "./components/Register";
 import HomePage from "./components/HomePage";
+import Movies from "./components/Movies";
+import TvSeries from "./components/TvSeries";
 import "./index.css";
 
 export interface FormData {
@@ -39,6 +41,8 @@ function App() {
           <Route path="/login" element={<FormPage />} />
           <Route path="/register" element={<SignUpFormPage />} />
           <Route path="/home" element={<HomePage />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/tv-series" element={<TvSeries />} />
         </Routes>
       </Router>
     </MyContext.Provider>
