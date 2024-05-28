@@ -14,7 +14,7 @@ function TrendingSlider() {
   return (
     <>
       <div>
-        <h1 className='text-white text-[1.25rem] mb-[1.56rem] ml-4'>Trending</h1>
+        <h1 className='text-white text-[1.25rem] ml-4'>Trending</h1>
       </div>
       <div className='overflow-x-hidden'>
         <div className='flex p-4 gap-4 slide-track'>

@@ -7,7 +7,7 @@ import BookmarkImg from "../../public/starter-code/assets/icon-nav-bookmark.svg"
 import AvatarImg from "../../public/starter-code/assets/image-avatar.png"
 import SearchIcon from "../../public/starter-code/assets/icon-search.svg"
 import Slider from "./Slider"
-import data from "../../public/starter-code/data.json"
+import Recomended from './Recomended'
 
 
 function HomePage() {
@@ -33,6 +33,7 @@ function HomePage() {
       </div>
     </div>
     <Slider />
+    <Recomended />
     </>
   )
 }
