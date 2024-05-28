@@ -3,7 +3,6 @@ import { Navigate, Route, Routes, BrowserRouter as Router } from "react-router-d
 import FormPage from "./components/LoginFormPage";
 import SignUpFormPage from "./components/Register";
 import HomePage from "./components/HomePage";
-import Slider from "./components/Slider"
 import "./index.css";
 
 export interface FormData {
@@ -19,6 +18,8 @@ interface MyContextType {
   setShowHomePage: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+
+
 export const MyContext = createContext<MyContextType | null>(null);
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
         showSignUpPage,
         setShowSignUpPage,
         showHomePage,
-        setShowHomePage
+        setShowHomePage,
       }}
     >
       <Router>

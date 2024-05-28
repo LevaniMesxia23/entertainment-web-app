@@ -4,32 +4,38 @@ import { ImageData } from "../types";
 import "../../public/starter-code/data.json";
 import BookmarkEmpty from "../../public/starter-code/assets/icon-bookmark-empty.svg"
 import Movie from "../../public/starter-code/assets/icon-category-movie.svg"
-
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 function TrendingSlider() {
 
-
   const trendingImages = (data as ImageData[]).filter(image => image.isTrending);  
 
+  const isSmallDevice = useMediaQuery("only screen and (min-width : 768px)");
+  const isMediumDevice = useMediaQuery(
+    "only screen and (min-width : 769px) and (max-width : 992px)"
+  );
+  console.log(isSmallDevice)
   return (
+    <>
+    
     <div>
-      <div className='p-4 flex flex-col'>
-        <div>
-        <h1 className='text-white text-[1.25rem] mb-[1.56rem]'>Trending</h1>
-        </div>
-        <div className='flex'>
+    <h1 className='text-white text-[1.25rem] mb-[1.56rem] ml-4'>Trending</h1>
+    </div>
+    <div>
+      <div className='p-4 flex flex-col overflow-hidden relative'>
+        <div className='flex overflow-hidden slide-track gap-4'>
         {trendingImages.map((image, index) => (
             <div key={index} className='flex flex-row justify-center'>
               <div
                 style={{ 
-                  backgroundImage: `url(${window.innerWidth >= 768 ? image.thumbnail.trending?.large : image.thumbnail.trending?.small})`,
+                  backgroundImage: `url(${isSmallDevice ? `${image.thumbnail.trending?.large}` : `${image.thumbnail.trending?.small}`})`,
                   backgroundSize: 'cover',
                   borderRadius: '8px',
                   marginRight: "0.5rem",
-                  height: "14.375rem"
+                  height: `${!isSmallDevice ?"140px" : "14.375rem"}`
                 }}
               >
-                <div className='gap-[15rem] flex justify-between pb-6 pt-4 px-6 flex-row-reverse w-full h-full'>
+                <div className='gap-[3.5rem] md:gap-[15rem] flex justify-between pb-6 pt-4 px-6 flex-row-reverse w-full h-full'>
                   <div className='bg-[#10141E] w-8 h-8 rounded-2xl opacity-[0.500647] flex justify-center items-center'>
                     <img src={BookmarkEmpty} alt=""/>
                   </div>
@@ -61,6 +67,7 @@ function TrendingSlider() {
           
       </div>
     </div>
+    </>
   );
 }
 

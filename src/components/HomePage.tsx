@@ -10,7 +10,6 @@ import Slider from "./Slider"
 import data from "../../public/starter-code/data.json"
 
 
-
 function HomePage() {
   return (
     <>
