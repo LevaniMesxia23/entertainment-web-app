@@ -18,8 +18,6 @@ interface MyContextType {
   setShowHomePage: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-
-
 export const MyContext = createContext<MyContextType | null>(null);
 
 function App() {
