@@ -4,6 +4,8 @@ import { ImageData } from "../types";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import BookmarkEmpty from "../../public/starter-code/assets/icon-bookmark-empty.svg";
 import Movie from "../../public/starter-code/assets/icon-category-movie.svg";
+import TvSeriesImg from "../../public/starter-code/assets/icon-nav-tv-series.svg"
+import TvSeries from './TvSeries';
 
 function Recommended() {
   const recommendedImages = (data as ImageData[]).filter(image => image.thumbnail?.regular);
@@ -28,7 +30,7 @@ function Recommended() {
                         <circle opacity="0.5" cx="1.5" cy="1.5" r="1.5" fill="white"/>
                       </svg>
                       <div className='flex items-center gap-[0.38rem]'>
-                        <img src={Movie} alt="" className='w-3 h-3'/>
+                        <img src={image.category === "Movie" ? Movie : TvSeriesImg} alt="" className='w-3 h-3'/>
                         <li className=' text-[0.6875rem]'>{image.category}</li>
                       </div>
                       <svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" viewBox="0 0 3 3" fill="none">
