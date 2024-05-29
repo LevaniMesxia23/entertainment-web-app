@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage";
 import Movies from "./components/Movies";
 import TvSeries from "./components/TvSeries";
 import "./index.css";
+import data from "../public/starter-code/data.json"
 
 export interface FormData {
   email: string;
@@ -18,6 +19,8 @@ interface MyContextType {
   setShowSignUpPage: React.Dispatch<React.SetStateAction<boolean>>;
   showHomePage: boolean;
   setShowHomePage: React.Dispatch<React.SetStateAction<boolean>>;
+  bookmarks: boolean[];
+  setBookmarks: React.Dispatch<React.SetStateAction<boolean[]>>
 }
 
 export const MyContext = createContext<MyContextType | null>(null);
@@ -25,6 +28,7 @@ export const MyContext = createContext<MyContextType | null>(null);
 function App() {
   const [showSignUpPage, setShowSignUpPage] = useState<boolean>(true);
   const [showHomePage, setShowHomePage] = useState<boolean>(false);
+  const [bookmarks, setBookmarks] = useState(data.map(item => item.isBookmarked));
 
   return (
     <MyContext.Provider 
@@ -33,6 +37,8 @@ function App() {
         setShowSignUpPage,
         showHomePage,
         setShowHomePage,
+        bookmarks,
+        setBookmarks,
       }}
     >
       <Router>
