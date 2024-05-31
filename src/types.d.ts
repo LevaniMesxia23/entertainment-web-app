@@ -15,3 +15,14 @@ export interface ImageData {
   isBookmarked: boolean;
   isTrending: boolean;
 }
+
+interface MyContextType {
+  showSignUpPage: boolean;
+  setShowSignUpPage: React.Dispatch<React.SetStateAction<boolean>>;
+  showHomePage: boolean;
+  setShowHomePage: React.Dispatch<React.SetStateAction<boolean>>;
+  bookmarks: boolean[] | null;
+  setBookmarks: React.Dispatch<React.SetStateAction<boolean[]>>
+  allMovies: ImageData[];
+  setAllMovies: React.Dispatch<React.SetStateAction<ImageData[]>>;
+}

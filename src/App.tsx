@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import { useState, createContext } from "react";
 import { Navigate, Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import FormPage from "./components/LoginFormPage";
 import SignUpFormPage from "./components/Register";
@@ -6,29 +6,15 @@ import HomePage from "./components/HomePage";
 import Movies from "./components/Movies";
 import TvSeries from "./components/TvSeries";
 import "./index.css";
-import data from "../public/starter-code/data.json"
-
-export interface FormData {
-  email: string;
-  password: string;
-  repeatPassword: string;
-}
-
-interface MyContextType {
-  showSignUpPage: boolean;
-  setShowSignUpPage: React.Dispatch<React.SetStateAction<boolean>>;
-  showHomePage: boolean;
-  setShowHomePage: React.Dispatch<React.SetStateAction<boolean>>;
-  bookmarks: boolean[];
-  setBookmarks: React.Dispatch<React.SetStateAction<boolean[]>>
-}
-
+import data from "../public/starter-code/data.json";
+import { MyContextType, ImageData } from "./types";
 export const MyContext = createContext<MyContextType | null>(null);
 
 function App() {
   const [showSignUpPage, setShowSignUpPage] = useState<boolean>(true);
   const [showHomePage, setShowHomePage] = useState<boolean>(false);
-  const [bookmarks, setBookmarks] = useState(data.map(item => item.isBookmarked));
+  const [bookmarks, setBookmarks] = useState<boolean[]>(data.map((item: ImageData) => item.isBookmarked));
+  const [allMovies, setAllMovies] = useState<ImageData[]>(data);
 
   return (
     <MyContext.Provider 
@@ -39,6 +25,8 @@ function App() {
         setShowHomePage,
         bookmarks,
         setBookmarks,
+        allMovies,
+        setAllMovies,
       }}
     >
       <Router>
