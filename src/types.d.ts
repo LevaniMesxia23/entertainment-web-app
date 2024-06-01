@@ -25,4 +25,5 @@ interface MyContextType {
   setBookmarks: React.Dispatch<React.SetStateAction<boolean[]>>
   allMovies: ImageData[];
   setAllMovies: React.Dispatch<React.SetStateAction<ImageData[]>>;
+  handleBookmarkClick: (image?: ImageData) => void
 }

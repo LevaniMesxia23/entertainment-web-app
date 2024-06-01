@@ -16,6 +16,21 @@ function App() {
   const [bookmarks, setBookmarks] = useState<boolean[]>(data.map((item: ImageData) => item.isBookmarked));
   const [allMovies, setAllMovies] = useState<ImageData[]>(data);
 
+
+  const handleBookmarkClick = (image?: ImageData) => {
+    let mapped = allMovies.map((item: ImageData) => {
+      if(item.title == image?.title){
+        return {
+          ...item, isBookmarked:!item.isBookmarked
+        }
+      }else{
+        return item
+      }
+    })
+    console.log(mapped)
+    setAllMovies(mapped);
+  };
+
   return (
     <MyContext.Provider 
       value={{
@@ -27,6 +42,7 @@ function App() {
         setBookmarks,
         allMovies,
         setAllMovies,
+        handleBookmarkClick
       }}
     >
       <Router>

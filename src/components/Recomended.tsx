@@ -6,24 +6,10 @@ import TvSeriesImg from "../../public/starter-code/assets/icon-nav-tv-series.svg
 import { MyContext } from "../App";
 
 function Recommended() {
-  const { allMovies, setAllMovies } = useContext<any>(MyContext);
+  const { allMovies, handleBookmarkClick } = useContext<any>(MyContext);
   const recommendedImages = (allMovies as ImageData[]).filter(image => image.thumbnail?.regular);
   const isSmallDevice = useMediaQuery("only screen and (min-width: 768px)");
 
-
-  const handleBookmarkClick = (image?: ImageData) => {
-    let mapped = allMovies.map((item: ImageData) => {
-      if(item.title == image?.title){
-        return {
-          ...item, isBookmarked:!item.isBookmarked
-        }
-      }else{
-        return item
-      }
-    })
-    console.log(mapped)
-    setAllMovies(mapped);
-  };
   return (
     <div>
       <div>
@@ -36,7 +22,7 @@ function Recommended() {
             <img className='w-full' src={image.thumbnail.regular.small} alt={image.title} />
             <svg
               onClick={() => handleBookmarkClick(image)}
-              className='absolute top-2 right-2'
+              className='absolute top-2 right-2 cursor-pointer'
               xmlns="http://www.w3.org/2000/svg"
               width="32"
               height="32"
