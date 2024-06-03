@@ -13,6 +13,7 @@
 body{
   background-color: #10141E;
   font-family: "Outfit", sans-serif;
+  padding-bottom: 2rem;
 }
 .slide-track {
   animation: scroll 60s linear 1s infinite;

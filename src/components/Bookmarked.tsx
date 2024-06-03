@@ -16,7 +16,7 @@ function Bookmarked() {
   const tvSeriesImage = (allMovies as ImageData[]).filter(image => image.category === "TV Series");
 
   const handleBookmarkClick = (movie: any) => {
-    // Your logic to handle bookmark click
+
   };
 
   return (
@@ -55,8 +55,8 @@ function Bookmarked() {
 
       <div className='px-4 grid grid-cols-2 md:grid-cols-3 gap-4'>
         {moviesImage
-          .filter((item: { isBookmarked: any; }) => item.isBookmarked)
-          .map((image: { thumbnail: { regular: { small: string | undefined; }; }; title: string | undefined; isBookmarked: any; }, index: Key | null | undefined) => (
+          .filter((item: { isBookmarked: boolean; }) => item.isBookmarked)
+          .map((image: any, index: Key | null | undefined) => (
             <div key={index} className='bg-gray-900 rounded-lg overflow-hidden bg-transparent relative'>
               <img className='w-full' src={image.thumbnail.regular.small} alt={image.title} />
               <svg onClick={() => handleBookmarkClick(image)} className='absolute top-2 right-2 cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -96,7 +96,7 @@ function Bookmarked() {
       <div className='px-4 grid grid-cols-2 md:grid-cols-3 gap-4'>
         {tvSeriesImage
           .filter((item: { isBookmarked: any; }) => item.isBookmarked)
-          .map((image: { thumbnail: { regular: { small: string | undefined; }; }; title: string | undefined; isBookmarked: any; }, index: Key | null | undefined) => (
+          .map((image: any, index: Key | null | undefined) => (
             <div key={index} className='bg-gray-900 rounded-lg overflow-hidden bg-transparent relative'>
               <img className='w-full' src={image.thumbnail.regular.small} alt={image.title} />
               <svg onClick={() => handleBookmarkClick(image)} className='absolute top-2 right-2 cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
