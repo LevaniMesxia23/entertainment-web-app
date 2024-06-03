@@ -1,17 +1,17 @@
 import Movie from "../../public/starter-code/assets/Movie.svg"
-import React, { useContext } from "react"
-import { MyContext } from "../App"
+import { useContext } from "react"
+import { MyContext, FormData } from "../App"
 import { useForm } from 'react-hook-form';
-import { FormData } from '../App';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function SignUpFormPage() {
   const context = useContext(MyContext)
   const {register, handleSubmit, formState: {errors}, watch} = useForm<FormData>()
+  const navigate = useNavigate();
 
   const onsubmit = async (data: {}) => {
-    console.log(data);
     localStorage.setItem('user', JSON.stringify(data));
+    navigate("/login");
   }
 
   const emailValidation = {
@@ -32,7 +32,7 @@ function SignUpFormPage() {
 
   const repeatPasswordValidation = {
     required: "Can’t be empty",
-    validate: (value: string) => value === watch('password') || "Passwords do not match"
+    validate: (value: string | undefined) => value === watch('password') || "Passwords do not match"
   }
 
   if(!context){

@@ -11,6 +11,12 @@ import { MyContextType, ImageData } from "./types";
 import Bookmarked from "./components/Bookmarked";
 export const MyContext = createContext<MyContextType | null>(null);
 
+export interface FormData {
+  email: string;
+  password: string;
+  repeatPassword?: string;
+}
+
 function App() {
   const [showSignUpPage, setShowSignUpPage] = useState<boolean>(true);
   const [showHomePage, setShowHomePage] = useState<boolean>(false);
