@@ -15,6 +15,7 @@ function App() {
   const [showHomePage, setShowHomePage] = useState<boolean>(false);
   const [bookmarks, setBookmarks] = useState<boolean[]>(data.map((item: ImageData) => item.isBookmarked));
   const [allMovies, setAllMovies] = useState<ImageData[]>(data);
+  const [search, setSearch] = useState<string>('')
 
 
   const handleBookmarkClick = (image?: ImageData) => {
@@ -42,7 +43,9 @@ function App() {
         setBookmarks,
         allMovies,
         setAllMovies,
-        handleBookmarkClick
+        handleBookmarkClick,
+        search,
+        setSearch
       }}
     >
       <Router>

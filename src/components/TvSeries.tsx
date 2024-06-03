@@ -7,12 +7,11 @@ import AvatarImg from "../../public/starter-code/assets/image-avatar.png"
 import SearchIcon from "../../public/starter-code/assets/icon-search.svg"
 import { Link } from 'react-router-dom';
 import { ImageData } from '../types'
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { MyContext } from "../App"
 
 function TvSeries() {
-  const [search, setSearch] = useState('')
-  const {allMovies,handleBookmarkClick} = useContext<any>(MyContext)
+  const { allMovies,handleBookmarkClick, search, setSearch } = useContext<any>(MyContext)
   const tvSeriesImage = (allMovies as ImageData[]).filter(image => image.category === "TV Series");
 
   return (

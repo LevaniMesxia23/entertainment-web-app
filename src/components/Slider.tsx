@@ -8,7 +8,6 @@ import { useMediaQuery } from "@uidotdev/usehooks";
 function TrendingSlider() {
 
   const trendingImages = (data as ImageData[]).filter(image => image.isTrending);  
-
   const isSmallDevice = useMediaQuery("only screen and (min-width : 768px)");
 
   return (

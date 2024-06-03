@@ -16,14 +16,17 @@ export interface ImageData {
   isTrending: boolean;
 }
 
-interface MyContextType {
+
+export interface MyContextType {
   showSignUpPage: boolean;
-  setShowSignUpPage: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowSignUpPage: (show: boolean) => void;
   showHomePage: boolean;
-  setShowHomePage: React.Dispatch<React.SetStateAction<boolean>>;
-  bookmarks: boolean[] | null;
-  setBookmarks: React.Dispatch<React.SetStateAction<boolean[]>>
+  setShowHomePage: (show: boolean) => void;
+  bookmarks: boolean[];
+  setBookmarks: (bookmarks: boolean[]) => void;
   allMovies: ImageData[];
-  setAllMovies: React.Dispatch<React.SetStateAction<ImageData[]>>;
-  handleBookmarkClick: (image?: ImageData) => void
+  setAllMovies: (movies: ImageData[]) => void;
+  handleBookmarkClick: (image?: ImageData) => void;
+  search: string;
+  setSearch: (search: string) => void;
 }

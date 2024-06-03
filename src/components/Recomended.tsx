@@ -9,6 +9,7 @@ function Recommended() {
   const { allMovies, handleBookmarkClick } = useContext<any>(MyContext);
   const recommendedImages = (allMovies as ImageData[]).filter(image => image.thumbnail?.regular);
   const isSmallDevice = useMediaQuery("only screen and (min-width: 768px)");
+  const { search, setSearch } = useContext<any>(MyContext)
 
   return (
     <div>
@@ -17,7 +18,9 @@ function Recommended() {
       </div>
 
       <div className='px-4 grid grid-cols-2 md:grid-cols-3 gap-4'>
-        {recommendedImages.map((image, index) => (
+        {recommendedImages.filter((item)=> {
+          return search.toLocaleLowerCase() === '' ? item : item.title.toLocaleLowerCase().includes(search)})
+          .map((image, index) => (
           <div key={index} className='bg-gray-900 rounded-lg overflow-hidden bg-transparent relative'>
             <img className='w-full' src={image.thumbnail.regular.small} alt={image.title} />
             <svg
