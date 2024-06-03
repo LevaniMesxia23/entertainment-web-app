@@ -7,10 +7,11 @@ import AvatarImg from "../../public/starter-code/assets/image-avatar.png"
 import SearchIcon from "../../public/starter-code/assets/icon-search.svg"
 import { Link } from 'react-router-dom';
 import { ImageData } from '../types'
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { MyContext } from "../App"
 
 function TvSeries() {
+  const [search, setSearch] = useState('')
   const {allMovies,handleBookmarkClick} = useContext<any>(MyContext)
   const tvSeriesImage = (allMovies as ImageData[]).filter(image => image.category === "TV Series");
 
@@ -39,7 +40,7 @@ function TvSeries() {
     <div className='p-4'>
       <div className='flex gap-4 mt-6'>
         <img src={SearchIcon} alt="" className='w-6 h-6'/>
-        <input type="text" placeholder='Search for TV series' className='outline-none bg-transparent text-white w-[80%]'/>
+        <input type="text" onChange={(e) => setSearch(e.target.value)} placeholder='Search for TV series' className='outline-none bg-transparent text-white w-[80%]'/>
       </div>
     </div>
 
@@ -49,7 +50,9 @@ function TvSeries() {
     </div>
 
     <div className='px-4 grid grid-cols-2 md:grid-cols-3 gap-4'>
-        {tvSeriesImage.map((image, index) => (
+        {tvSeriesImage.filter((item)=> {
+          return search.toLocaleLowerCase() === '' ? item : item.title.toLocaleLowerCase().includes(search)
+        }).map((image, index) => (
           <div key={index} className='bg-gray-900 rounded-lg overflow-hidden bg-transparent relative'>
             <img className=' w-full ' src={image.thumbnail.regular.small} alt="" />
             <svg onClick={() => handleBookmarkClick(image)} className='absolute top-2 right-2 cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
