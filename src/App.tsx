@@ -8,6 +8,7 @@ import TvSeries from "./components/TvSeries";
 import "./index.css";
 import data from "../public/starter-code/data.json";
 import { MyContextType, ImageData } from "./types";
+import Bookmarked from "./components/Bookmarked";
 export const MyContext = createContext<MyContextType | null>(null);
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
           <Route path="/home" element={<HomePage />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/tv-series" element={<TvSeries />} />
+          <Route path="/bookmarks" element={<Bookmarked />} />
         </Routes>
       </Router>
     </MyContext.Provider>

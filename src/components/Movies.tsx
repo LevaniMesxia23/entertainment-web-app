@@ -31,7 +31,9 @@ function Movies() {
         <Link to={"/tv-series"}>
         <img src={TvSeriesImg} alt="" />
         </Link>
+        <Link to={"/bookmarks"}>
         <img src={BookmarkImg} alt="" />
+        </Link>
         </div>
         <img src={AvatarImg} alt="" className=' w-6 h-6 rounded-3xl'/>
       </div>
