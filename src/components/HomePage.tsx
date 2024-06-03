@@ -14,7 +14,6 @@ import { useContext } from 'react'
 
 function HomePage() {
   const { search, setSearch } = useContext<any>(MyContext)
-  console.log(search)
   return (
     <>
     <header>

@@ -11,13 +11,9 @@ import { Key, useContext } from "react";
 import { ImageData } from '../types'
 
 function Bookmarked() {
-  const { search, setSearch, allMovies, setAllMovies } = useContext<any>(MyContext);
+  const { search, setSearch, allMovies, setAllMovies,handleBookmarkClick } = useContext<any>(MyContext);
   const moviesImage = (allMovies as ImageData[]).filter(image => image.category === "Movie");
   const tvSeriesImage = (allMovies as ImageData[]).filter(image => image.category === "TV Series");
-
-  const handleBookmarkClick = (movie: any) => {
-
-  };
 
   return (
     <div>

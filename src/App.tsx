@@ -29,7 +29,6 @@ function App() {
         return item
       }
     })
-    console.log(mapped)
     setAllMovies(mapped);
   };
 
