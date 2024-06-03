@@ -50,7 +50,7 @@ function TvSeries() {
       </div>
     </div>
 
-    <div className='px-4 grid grid-cols-2 md:grid-cols-3 gap-4'>
+    <div className='px-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
         {tvSeriesImage.filter((item)=> {
           return search.toLocaleLowerCase() === '' ? item : item.title.toLocaleLowerCase().includes(search)
         }).map((image, index) => (

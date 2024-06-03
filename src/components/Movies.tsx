@@ -51,7 +51,7 @@ function Movies() {
       </div>
     </div>
 
-    <div className='px-4 grid grid-cols-2 md:grid-cols-3 gap-4'>
+    <div className='px-4 grid grid-cols-2 md:grid-cols-3 gap-4 lg:grid-cols-4'>
         {moviesImage.filter((item) => {
           return search.toLowerCase() === '' ? item : item.title.toLocaleLowerCase().includes(search)
         }).map((image, index) => (

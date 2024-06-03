@@ -17,7 +17,7 @@ function Recommended() {
         <h1 className='text-white text-[1.25rem] mb-6 ml-4'>Recommended for you</h1>
       </div>
 
-      <div className='px-4 grid grid-cols-2 md:grid-cols-3 gap-4'>
+      <div className='px-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
         {recommendedImages.filter((item)=> {
           return search.toLocaleLowerCase() === '' ? item : item.title.toLocaleLowerCase().includes(search)})
           .map((image, index) => (

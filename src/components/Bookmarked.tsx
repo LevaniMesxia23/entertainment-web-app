@@ -49,7 +49,7 @@ function Bookmarked() {
         <h1 className='text-white text-[1.25rem] ml-4'>Bookmarked Movies</h1>
       </div>
 
-      <div className='px-4 grid grid-cols-2 md:grid-cols-3 gap-4'>
+      <div className='px-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
         {moviesImage.filter((item) => {
           return search.toLowerCase() === '' ? item : item.title.toLocaleLowerCase().includes(search)
         })
@@ -91,7 +91,7 @@ function Bookmarked() {
         <h1 className='text-white text-[1.25rem] ml-4 mt-6'>Bookmarked TV Series</h1>
       </div>
 
-      <div className='px-4 grid grid-cols-2 md:grid-cols-3 gap-4'>
+      <div className='px-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
         {tvSeriesImage.filter((item) => {
           return search.toLowerCase() === '' ? item : item.title.toLocaleLowerCase().includes(search)
         })
