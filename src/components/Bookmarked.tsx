@@ -54,7 +54,9 @@ function Bookmarked() {
       </div>
 
       <div className='px-4 grid grid-cols-2 md:grid-cols-3 gap-4'>
-        {moviesImage
+        {moviesImage.filter((item) => {
+          return search.toLowerCase() === '' ? item : item.title.toLocaleLowerCase().includes(search)
+        })
           .filter((item: { isBookmarked: boolean; }) => item.isBookmarked)
           .map((image: any, index: Key | null | undefined) => (
             <div key={index} className='bg-gray-900 rounded-lg overflow-hidden bg-transparent relative'>
@@ -94,7 +96,9 @@ function Bookmarked() {
       </div>
 
       <div className='px-4 grid grid-cols-2 md:grid-cols-3 gap-4'>
-        {tvSeriesImage
+        {tvSeriesImage.filter((item) => {
+          return search.toLowerCase() === '' ? item : item.title.toLocaleLowerCase().includes(search)
+        })
           .filter((item: { isBookmarked: any; }) => item.isBookmarked)
           .map((image: any, index: Key | null | undefined) => (
             <div key={index} className='bg-gray-900 rounded-lg overflow-hidden bg-transparent relative'>
