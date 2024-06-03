@@ -45,7 +45,8 @@ function FormPage() {
   }
 
   return (
-    <div className='flex justify-center items-center flex-col px-6'>
+    <div className=' flex justify-center items-center '>
+    <div className='flex justify-center items-center flex-col px-6 w-[100%] md:max-w-[30rem] lg:max-w-[35rem]'>
       <img src={Movie} alt="Movie" className="mt-12 mb-14" />
 
       <div className='bg-[#161D2F] w-full rounded-lg flex flex-col px-6 pt-6 pb-8'>
@@ -75,7 +76,7 @@ function FormPage() {
             {errors.password && <span className='text-red-500 absolute right-2'>{errors.password.message}</span>}
           </div>
 
-          <button type='submit' className='bg-[#FC4747] text-white rounded-md text-lg py-4 mt-4'>
+          <button type='submit' className='bg-[#FC4747] text-white rounded-md text-lg py-4 mt-4 hover:bg-white hover:text-[#FC4747]'>
             Login to your account
           </button>
         </form>
@@ -87,6 +88,7 @@ function FormPage() {
           </Link>
         </div>
       </div>
+    </div>
     </div>
   );
 }

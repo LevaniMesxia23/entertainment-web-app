@@ -57,7 +57,7 @@ function SignUpFormPage() {
         <input {...register("repeatPassword", {...repeatPasswordValidation})} type="password" id='repeatPassword' placeholder='Repeat Password' className='bg-transparent opacity-50 border-b-[0.0625rem] pl-4 pb-[1rem] border-[#5A698F] text-white relative w-[100%] outline-none'/>
         {errors.repeatPassword ? <span className=' text-red-500 absolute right-2'>{errors.repeatPassword?.message}</span> : null}
         </div>
-      <button className=' bg-[#FC4747] text-white rounded-[0.375rem] text-[0.9375rem] font-normal py-[0.90rem] mt-4'>Create an account</button>
+      <button className=' bg-[#FC4747] text-white rounded-[0.375rem] text-[0.9375rem] font-normal py-[0.90rem] mt-4 '>Create an account</button>
       </form>
       
       <div className='flex justify-center gap-[0.56rem]'>
