@@ -39,7 +39,8 @@ function SignUpFormPage() {
     throw new Error("FormPage must be used within a MycontextProvider");
   }
   return (
-    <div className='flex justify-center items-center flex-col px-[1.5rem]'>
+    <div className=' flex justify-center items-center'>
+    <div className='flex justify-center items-center flex-col px-[1.5rem] w-[100%] md:max-w-[30rem] lg:max-w-[35rem]'>
       <img src={Movie} alt="" className=" mt-12 mb-14"/>
 
       <div className='bg-[#161D2F] w-[100%] rounded-[0.625rem] flex flex-col px-[1.5rem] pt-[1.5rem] pb-[2rem]'>
@@ -57,7 +58,7 @@ function SignUpFormPage() {
         <input {...register("repeatPassword", {...repeatPasswordValidation})} type="password" id='repeatPassword' placeholder='Repeat Password' className='bg-transparent opacity-50 border-b-[0.0625rem] pl-4 pb-[1rem] border-[#5A698F] text-white relative w-[100%] outline-none'/>
         {errors.repeatPassword ? <span className=' text-red-500 absolute right-2'>{errors.repeatPassword?.message}</span> : null}
         </div>
-      <button className=' bg-[#FC4747] text-white rounded-[0.375rem] text-[0.9375rem] font-normal py-[0.90rem] mt-4 '>Create an account</button>
+      <button className=' bg-[#FC4747] text-white rounded-[0.375rem] text-[0.9375rem] font-normal py-[0.90rem] mt-4 hover:bg-white hover:text-[#FC4747]'>Create an account</button>
       </form>
       
       <div className='flex justify-center gap-[0.56rem]'>
@@ -67,6 +68,7 @@ function SignUpFormPage() {
       </Link>
       </div>
       </div>
+    </div>
     </div>
   )
 }
