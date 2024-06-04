@@ -10,7 +10,6 @@ function Movies() {
   const moviesImage = (allMovies as ImageData[]).filter(image => image.category === "Movie");
   const { search, setSearch } = useContext<any>(MyContext)
   
-  
   return (
     <>
     <div>

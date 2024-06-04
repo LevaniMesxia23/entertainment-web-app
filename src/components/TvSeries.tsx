@@ -1,11 +1,5 @@
-import Movie from "../../public/starter-code/assets/Movie.svg"
-import HomeImg from "../../public/starter-code/assets/icon-nav-home.svg"
-import MoviesImg from "../../public/starter-code/assets/icon-nav-movies.svg"
 import TvSeriesImg from "../../public/starter-code/assets/icon-nav-tv-series.svg"
-import BookmarkImg from "../../public/starter-code/assets/icon-nav-bookmark.svg"
-import AvatarImg from "../../public/starter-code/assets/image-avatar.png"
 import SearchIcon from "../../public/starter-code/assets/icon-search.svg"
-import { Link } from 'react-router-dom';
 import { ImageData } from '../types'
 import { useContext } from "react"
 import { MyContext } from "../App"

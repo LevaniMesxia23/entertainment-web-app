@@ -1,9 +1,6 @@
-import Movie from "../../public/starter-code/assets/Movie.svg"
-import AvatarImg from "../../public/starter-code/assets/image-avatar.png"
 import SearchIcon from "../../public/starter-code/assets/icon-search.svg"
 import Slider from "./Slider"
 import Recomended from './Recomended'
-import { Link, useLocation } from 'react-router-dom';
 import { MyContext } from '../App'
 import { useContext } from 'react'
 import Header from "./Header"
@@ -11,7 +8,6 @@ import Header from "./Header"
 
 function HomePage() {
   const { setSearch } = useContext<any>(MyContext)
-  let location = useLocation();
   
   return (
     <>
