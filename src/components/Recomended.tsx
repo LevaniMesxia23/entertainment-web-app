@@ -1,6 +1,5 @@
 import  { useContext, } from 'react';
 import { ImageData } from "../types";
-import { useMediaQuery } from "@uidotdev/usehooks";
 import Movie from "../../public/starter-code/assets/icon-category-movie.svg";
 import TvSeriesImg from "../../public/starter-code/assets/icon-nav-tv-series.svg";
 import { MyContext } from "../App";
@@ -8,8 +7,7 @@ import { MyContext } from "../App";
 function Recommended() {
   const { allMovies, handleBookmarkClick } = useContext<any>(MyContext);
   const recommendedImages = (allMovies as ImageData[]).filter(image => image.thumbnail?.regular);
-  const isSmallDevice = useMediaQuery("only screen and (min-width: 768px)");
-  const { search, setSearch } = useContext<any>(MyContext)
+  const { search } = useContext<any>(MyContext)
 
   return (
     <div>
