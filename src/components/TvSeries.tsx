@@ -31,14 +31,16 @@ function TvSeries() {
         }).map((image, index) => (
           <div key={index} className='bg-gray-900 rounded-lg overflow-hidden bg-transparent relative'>
            <div className='relative flex justify-center items-center group'>
-              <img className='w-full' src={image.thumbnail.regular.small} alt={image.title} />
-              <div className='w-[7.3125rem] h-[3rem] bg-white/25 absolute rounded-[1.78125rem] flex justify-center items-center gap-[1.19rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer'>
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-                  <path fillRule="evenodd" clipRule="evenodd" d="M0 15C0 6.7125 6.7125 0 15 0C23.2875 0 30 6.7125 30 15C30 23.2875 23.2875 30 15 30C6.7125 30 0 23.2875 0 15ZM21 14.5L12 8V21L21 14.5Z" fill="white"/>
-                </svg>
-                <span className='text-white'>Play</span>
-              </div>
-              </div>
+          <img className='w-full' src={image.thumbnail.regular.small} alt={image.title} />
+          <div className='w-full h-full absolute top-0 left-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+          <div className='w-[7.3125rem] h-[3rem] bg-white/25 absolute rounded-[1.78125rem] flex justify-center items-center gap-[1.19rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+              <path fillRule="evenodd" clipRule="evenodd" d="M0 15C0 6.7125 6.7125 0 15 0C23.2875 0 30 6.7125 30 15C30 23.2875 23.2875 30 15 30C6.7125 30 0 23.2875 0 15ZM21 14.5L12 8V21L21 14.5Z" fill="white"/>
+            </svg>
+            <span className='text-white'>Play</span>
+          </div>
+          </div>
+
             <svg onClick={() => handleBookmarkClick(image)} className='absolute top-2 right-2 cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
               <circle opacity="0.500647" cx="16" cy="16" r="16" fill="#10141E"/>
              {!image.isBookmarked ? 
