@@ -13,9 +13,9 @@ function TrendingSlider() {
   return (
     <>
       <div>
-        <h1 className='text-white text-[1.25rem] ml-4'>Trending</h1>
+        <h1 className='text-white text-[1.25rem] ml-4 lg:ml-[10.25rem]'>Trending</h1>
       </div>
-      <div className='overflow-x-hidden'>
+      <div className='overflow-x-hidden lg:ml-[10.25rem]'>
         <div className='flex p-4 gap-4 slide-track'>
           {trendingImages.map((image, index) => (
             <div key={index} className='flex-shrink-0 relative'>
